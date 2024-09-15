@@ -1,0 +1,8 @@
+if not install virtual env:- Set-ExecutionPolicy unrestricted
+to activate env:- .\env\Scripts\activate.ps1
+then use -> python filename.py :to run the app in localhost
+basic requirement to run the entire code
+   1 python-> downlod and install python 3 in your window
+   2 jinja2 -> pip install jinja2 : in terminal within  env
+   3 flask -> pip install flask   : in terminal within  env
+   4 sqlalchemy -> pip install sqlalchemy : in terminal within  env

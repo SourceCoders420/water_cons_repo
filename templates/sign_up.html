@@ -1,0 +1,226 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groundwater Conservation Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Groundwater Conservation Game</h1>
+        
+       
+    </header>
+    <section id="contact">
+        <h1 class="underline">Sign Up</h1>
+        <h2 class="small-text">Registration Page</h2>
+        <br><br><br>
+        <form action="/signup" method="POST" onsubmit="return validateAge();">
+            <label> Firstname: </label>
+            <input type="text" name="firstname" size="15" required> <br> 
+            <label> Middlename: </label>     
+            <input type="text" name="middlename" size="15"/> <br>
+            <label> Lastname: </label>         
+            <input type="text" name="lastname" size="15"/> <br>
+
+            <label> Age: </label>
+            <input type="number" id="age" name="age" size="15" required> <br>  
+
+            <label> Phone: </label>  
+            <input type="text" name="country code" value="+91" size="2"/>   
+            <input type="text" name="phone" size="10"/> <br>
+
+            <label> Address: </label><br>
+            <textarea cols="40" rows="5" name="address"></textarea>  
+            <br><br>  
+
+            <label> Email: </label>  
+            <input type="email" id="email" name="email" required> <br>    
+
+            <label> Password: </label>  
+            <input type="password" id="pass" name="pass" required> <br>   
+
+            <label> Re-type password: </label>  
+            <input type="password" id="repass" name="repass" oninput="checkPasswordMatch()"> <br>
+            <span id="passwordMatchMessage"></span> <br>
+
+            <button type="submit" >Submit</button>  
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Groundwater Conservation Game. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e6f7ff;
+    color: #333;
+    background-image: url('https://www.transparenttextures.com/patterns/green-fibers.png');
+}
+
+header {
+    background-color: #007acc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+#contact {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#passwordMatchMessage {
+    color: red;
+    font-size: 12px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #007acc;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #444;
+}
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+button,
+button:focus {
+  font-size: 17px;
+  padding: 10px 25px;
+  margin-top:20px ;
+  border-radius: 0.7rem;
+  background-image: linear-gradient(rgb(214, 202, 254), rgb(158, 129, 254));
+  border: 2px solid rgb(50, 50, 50);
+  border-bottom: 5px solid rgb(50, 50, 50);
+  box-shadow: 0px 1px 6px 0px rgb(158, 129, 254);
+  transform: translate(0, -3px);
+  cursor: pointer;
+  transition: 0.2s;
+  transition-timing-function: linear;
+}
+
+button:active {
+  transform: translate(0, 0);
+  border-bottom: 2px solid rgb(50, 50, 50);
+}
+
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #007acc;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        display: block;
+    }
+
+    section {
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1em;
+    }
+ 
+}</style><script>function toggleMenu() {
+    var menu = document.getElementById('menu');
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+    } else {
+        menu.classList.add('hidden');
+    }
+}
+function checkPasswordMatch() {
+    var password = document.getElementById("pass").value;
+    var rePassword = document.getElementById("repass").value;
+    var message = document.getElementById("passwordMatchMessage");
+
+    if (password !== rePassword) {
+        message.textContent = "You've entered the wrong value.";
+    } else {
+        message.textContent = "";
+    }
+}
+
+document.getElementById('startGameButton').addEventListener('click', function() {
+    alert("The game will start soon. Get ready!");
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert("Thank you for your message! We will get back to you soon.");
+});</script>
